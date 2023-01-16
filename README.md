@@ -103,7 +103,7 @@ module.exports = {
 <<<<<<< HEAD
 =======
 
-#### Credits
+### Credits
 
 Desarrollado por @Royaltics.Solutions
 

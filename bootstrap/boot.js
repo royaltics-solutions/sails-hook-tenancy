@@ -2,7 +2,6 @@
 const Validator = require('../helpers/validator');
 const { addDatastoreModel, addDatastoreNative } = require('../helpers/useDatastore');
 var schemas = require('../helpers/schema');
-var async = require('async');
 
 
 module.exports = function inicialize(sails, resolve) {
@@ -111,8 +110,7 @@ module.exports = function inicialize(sails, resolve) {
         }
 
 
-
-        sails.log.info(`Sails-Hook-Tenancy is Loaded Succesful`)
+        sails.log.info(`Sails-Hook-Tenancy is Loaded Succesful by @Royaltics.Solutions`)
         sails.log.info(`---------------------------------------`)
     })
 
