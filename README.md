@@ -1,5 +1,6 @@
 
 ## 1. Introduction
+
 Sails Hook Tenancy it is a hook that will allow sails applications to use multi-tenancy methods for each Model specified as such.
 Different databases or sources or drivers may be accessed in each client request. 
 A new connection for each Tenant will be stored in the global datastore of sails or it will be accessed if it was already created.
@@ -41,9 +42,9 @@ module.exports.tenancy = {
         user: ''
     }
 }
+```
 
-
-## 4. .use() Method
+## 4. Add Atributte tenancy in Models Muti-tenancy
 
 ```javascript
 /**
@@ -54,7 +55,12 @@ module.exports.tenancy = {
  */
 
 module.exports = {
+  //...others,
 
+  //tableName: 'persons',
+
+  tenancy: true,
+  
   attributes: {
     name: 'string',
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
@@ -71,14 +77,13 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
-  },
-  tenancy: true
+  }
 };
 
 ```
 
 
-### 5. .use()
+### 5. Method .use() in Models
 
 ```javascript
 /**
@@ -113,10 +118,7 @@ module.exports = {
 ```
 
 
-### SenNativeQuery
-
-
-### 5. .use()
+### 6. Method .use() in SendnativeQuery
 
 ```javascript
 /**
@@ -138,8 +140,9 @@ module.exports = {
 };
 ```
 
-#### Credits
+#### 7. Credits
 
 Desarrollado por @Royaltics.Solutions
 
   - This project could be carried out thanks to the inspiration of the sails-hook-multitenant project (https://github.com/parleycl/sails-hook-multitenant) of Parleycl (2019). Thanks 
+  - If you require a more complete solution => sails-hook-multitenant (2019)
