@@ -1,3 +1,8 @@
+## Logo
+
+![sails-hook-tenancy](https://github.com/royaltics-solutions/sails-hook-tenancy/raw/master/assets/logo.png)
+
+
 
 ## 1. Introduction
 
