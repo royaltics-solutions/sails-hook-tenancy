@@ -1,5 +1,5 @@
 {
-  "name": "@royaltics/sails-hook-tenancy",
+  "name": "sails-hook-tenancy",
   "version": "0.0.0",
   "description": "A multi tenancy ORM hook to transform Waterline ORM into Multitenant ORM for Sails.js 1.X",
   "main": "index.js",
@@ -33,7 +33,6 @@
     "url": "https://github.com/royaltics-solutions/sails-hook-tenancy"
   },
   "dependencies": {
-    "async": "^3.2.4",
     "parley": "^4.0.0",
     "sails-hook-orm": "^4.0.2"
   }
