@@ -90,9 +90,25 @@ module.exports = {
 
 module.exports = {
   
+    find: async function(req, res) {
+        Persons.use(datasource).find().exec((err, data)=>{
+            //return with custom response
+            return res.response(err, data);
+        })
+    },
+
     findOne: async function(req, res) {
-        
+        const person = await Persons.use(datasource).findOne({id: req.params.id});
+      //return with custom response
+        return res.done(person);
+    },
+
+    create: async function(req, res) {
+        const person = await Persons.use(datasource).create({...req.body}).fetch();
+      //return with custom response
+        return res.done(person);
     }
+
 };
 ```
 
@@ -100,6 +116,27 @@ module.exports = {
 ### SenNativeQuery
 
 
+### 5. .use()
+
+```javascript
+/**
+ * PersonsController
+ *
+ * @description :: Server-side actions for handling incoming requests.
+ * @help        :: See https://sailsjs.com/docs/concepts/actions
+ */
+
+module.exports = {
+  
+    actionQuery: async function(req, res) {
+
+        const results = await sails.use(datasource).sendNativeQuery('select * from persons where id = $1', [1]);
+
+        //return with custom response
+        return res.done(results);
+    }
+};
+```
 
 #### Credits
 
