@@ -4,7 +4,13 @@ module.exports = {
     datasource: (argument, sails) => {
 
         if (argument.constructor.name === 'IncomingMessage') {
-            return argument;
+
+            if(!argument.datasouce){
+                sails.log.error('The Req (IncomingMessage): not have a req.datasource Object is undefined or null or invalid!');
+                return null;
+            }
+
+            return argument.datasouce;
         }
 
         //validate require { host, ...etc}
