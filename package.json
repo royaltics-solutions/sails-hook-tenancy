@@ -1,0 +1,40 @@
+{
+  "name": "@royaltics/sails-hook-tenancy",
+  "version": "0.0.0",
+  "description": "A multi tenancy ORM hook to transform Waterline ORM into Multitenant ORM for Sails.js 1.X",
+  "main": "index.js",
+  "sails": {
+    "isHook": true,
+    "hookName": "sails-hook-tenancy"
+  },
+  "scripts": {
+    "test": "mocha -R spec test"
+  },
+  "devDependencies": {
+    "eslint": ">=4.18.2",
+    "lodash": ">=4.17.13",
+    "sails": "^1.0.0-46",
+    "waterline": "^0.13.4"
+  },
+  "license": "MIT",
+  "keywords": [
+    "Sails.js",
+    "Nodejs",
+    "ORM",
+    "Tenancy",
+    "Multi-tenants"
+  ],
+  "author": {
+    "name": "Royaltics Solutions",
+    "email": "dev@royaltics.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/royaltics-solutions/sails-hook-tenancy"
+  },
+  "dependencies": {
+    "async": "^3.2.4",
+    "parley": "^4.0.0",
+    "sails-hook-orm": "^4.0.2"
+  }
+}
