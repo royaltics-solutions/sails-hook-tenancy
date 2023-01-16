@@ -100,12 +100,9 @@ module.exports = {
 ### SenNativeQuery
 
 
-<<<<<<< HEAD
-=======
 
-### Credits
+#### Credits
 
 Desarrollado por @Royaltics.Solutions
 
   - This project could be carried out thanks to the inspiration of the sails-hook-multitenant project (https://github.com/parleycl/sails-hook-multitenant) of Parleycl (2019). Thanks 
->>>>>>> 0e79959 (thanks)
