@@ -50,7 +50,6 @@ module.exports = function inicialize(sails, resolve) {
                  * @returns {WModel}
                  */
                 Model.use = (argument)=>{
-                    const _self = this; //sails
 
                     var _datasource = Validator.datasource(argument, sails);
 

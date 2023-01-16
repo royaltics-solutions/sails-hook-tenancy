@@ -13,7 +13,7 @@ module.exports = {
         const _datastores = Model._adapter.datastores;
         const _identity = Validator.encodeIdentity(datasource.identity);
 
-        console.log("Buscando Datastore for Model ", _identity, 'en: ', Object.keys(_datastores));
+        //console.log("Search Datastore for Model ", _identity, 'en: ', Object.keys(_datastores));
 
         //find datastore
         if (Validator.searchDataStore(_identity, _datastores)) {
@@ -39,11 +39,11 @@ module.exports = {
         //preparated search or create datastores
         const _identity = Validator.encodeIdentity(datasource.identity);
         //const _adapter = sails.hooks.orm.adapters[datasource.adapter];
-        console.log("Buscando Datastore for Native Query ", _identity, 'en: ', Object.keys(_datastores));
+       // console.log("Search Datastore for Native Query ", _identity, 'en: ', Object.keys(_datastores));
 
         //find datastore
         if (Validator.searchDataStore(_identity, _adapter.datastores)) {
-            console.log("return sails._getDatastore()")
+           //console.log("return sails._getDatastore()")
             //set current datastore
             return { 
 
@@ -51,7 +51,7 @@ module.exports = {
             };
             //return sails._getDatastore(_identity);
         } else {
-            console.log("create native datasource for nativeQuey")
+            //console.log("create native datasource for nativeQuey")
 
             // return new Promise(async (resolve, reject) => {
             registerDatastoreFromAdapter(_adapter, _identity, datasource, modelsSchemaMap, sails);

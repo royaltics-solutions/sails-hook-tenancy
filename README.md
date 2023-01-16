@@ -6,7 +6,7 @@
 
 ## 1. Introduction
 
-Sails Hook Tenancy it is a hook that will allow sails applications to use multi-tenancy methods for each Model specified as such.
+Sails Hook Tenancy it is a Basic and lite hook that will allow sails applications to use multi-tenancy methods for each Model specified as such.
 Different databases or sources or drivers may be accessed in each client request. 
 A new connection for each Tenant will be stored in the global datastore of sails or it will be accessed if it was already created.
 

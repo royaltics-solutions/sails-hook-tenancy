@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-tenancy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A multi tenancy ORM hook to transform Waterline ORM into Multitenant ORM for Sails.js 1.X",
   "main": "index.js",
   "sails": {
