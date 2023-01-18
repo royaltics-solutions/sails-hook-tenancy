@@ -16,7 +16,7 @@ You need npm to install the hook into your Sails app.
 
 ```bash
 # To install with npm
-npm install @royaltics/sails-hook-tenancy --save
+npm install sails-hook-tenancy --save
 
 ```
 
@@ -29,7 +29,7 @@ sail new project_name
 cd project_name
 # Go to Folder Created
 # To install with npm
-npm install @royaltics/sails-hook-tenancy --save
+npm install sails-hook-tenancy --save
 # To install with yarn
 # Lift your app
 sails lift
