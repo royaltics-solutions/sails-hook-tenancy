@@ -40,7 +40,7 @@ module.exports = function inicialize(sails, resolve) {
 
 
             if (Model.tenancy) {
-                
+
                 //validate
                 arrayTenancy.push(key);
 
@@ -49,13 +49,13 @@ module.exports = function inicialize(sails, resolve) {
                  * @param {req.datasource | {...datastore}} argument 
                  * @returns {WModel}
                  */
-                Model.use = (argument)=>{
+                Model.use = (argument) => {
 
                     var _datasource = Validator.datasource(argument, sails);
 
                     if (!_datasource) {
-                       
-                        throw Error('the req parameter in usingTenant() method not is valid se esperaba a Datsource{ host, user, password, dbname, identity, adapter, schema} But found this: '+ Object.keys(_datasource));
+
+                        throw Error('the req parameter in usingTenant() method not is valid se esperaba a Datsource{ host, user, password, dbname, identity, adapter, schema} But found this: ' + Object.keys(_datasource));
                     }
 
                     // If diferent go to search the multitentant;
@@ -91,17 +91,17 @@ module.exports = function inicialize(sails, resolve) {
          */
 
         //Aditional if preferer .use().sendNativeQuery
-        sails.use = (argument)=>{
+        sails.use = (argument) => {
 
             //if is normal for datastore register in ./config/datastore
-            if(!argument || typeof argument === 'string'){
+            if (!argument || typeof argument === 'string') {
                 return sails.getDatastore(argument);
             }
 
             //validate req or datasource
             var _datasource = Validator.datasource(argument, sails);
             if (!_datasource) {
-                throw Error('the req parameter in usingTenant() method not is valid se esperaba a Datsource{ host, user, password, dbname, identity, adapter, schema} But found this: '+ Object.keys(_datasource));
+                throw Error('the req parameter in usingTenant() method not is valid se esperaba a Datsource{ host, user, password, dbname, identity, adapter, schema} But found this: ' + _datasource);
             }
 
             //preparate new getDataStore
