@@ -16,30 +16,29 @@ module.exports = {
         //console.log("Search Datastore for Model ", _identity, 'en: ', Object.keys(_datastores));
 
         //find datastore
-        if (Validator.searchDataStore(_identity, _datastores)) {
-            //set current datastore
-            Model.datastore = _identity;
-
-            return Model;
-        } else {
-
+        if (!Validator.searchDataStore(_identity, _datastores)) {
             registerDatastoreFromModel(Model, _identity, datasource, modelsSchemaMap, sails);
-            Model.datastore = _identity;
-            // Model._adapter =  sails.hooks.orm.adapters[datasource.adapter];
-            return Model;
-
         }
+
+        /**
+         * FIX: AISLAMIENTO MEDIANTE HERENCIA PROTOTIPAL
+         * Creamos un nuevo objeto que hereda del Modelo original.
+         * Sobrescribimos 'datastore' solo en esta "instancia de petición".
+         * Esto garantiza que Waterline use la identidad correcta sin mutar el Singleton global.
+         */
+        const isolatedModel = Object.create(Model);
+        isolatedModel.datastore = _identity;
+
+        return isolatedModel;
     },
 
     //Agregar datasource al modelo y devolver el mismo
     addDatastoreNative: (datasource, modelsSchemaMap, sails) => {
         const _adapters = sails.hooks.orm.adapters;
         const _adapter = _adapters[datasource.adapter];
-        const _datastores = sails.hooks.orm.datastores;
         //preparated search or create datastores
         const _identity = Validator.encodeIdentity(datasource.identity);
         //const _adapter = sails.hooks.orm.adapters[datasource.adapter];
-       // console.log("Search Datastore for Native Query ", _identity, 'en: ', Object.keys(_datastores));
 
         //find datastore
         if (Validator.searchDataStore(_identity, _adapter.datastores)) {
@@ -64,37 +63,3 @@ module.exports = {
         }
     }
 }
-
-
-            //Create new Datastore
-/* Model._adapter.registerDatastore({
-     host: datasource.host,
-     port: datasource.port,
-     schema: datasource.schema,
-     adapter: datasource.adapter,
-     user: datasource.user,
-     password: datasource.password,
-     database: datasource.database,
-     identity: _identity
- }, modelsSchemaMap, (err) => {
-
-     if (err) {
-         reject(err);
-         throw err;
-     }
-
-     //set new datastore
-     Model.datastore = _identity;
-
-     //
-     _adapter.datastores[_identity].name = _identity;
-
-     //add new datastore in orm
-     _datastores[_identity] = _adapter.datastores[_identity];
-     
-     //replace current adapter
-     Model._adapter = _adapter;
-
- });
-
-*/
