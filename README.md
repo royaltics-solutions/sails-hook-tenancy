@@ -11,7 +11,7 @@ Sails Hook Tenancy is a high-performance, lightweight hook that enables multi-te
 ## Current Version
 
 ```bash
-Version: 0.0.4
+Version: 0.0.5
 ```
 
 ## Sails.js Deprecated
@@ -19,7 +19,7 @@ Version: 0.0.4
 > [!CAUTION]
 > **Important Notice**: Sails.js is considered a legacy framework and is no longer recommended for new enterprise applications. We strongly advise migrating to modern, robust, and high-performance frameworks such as **[NestJS](https://nestjs.com/)** or **[Fastify](https://www.fastify.io/)**.
 >
-> **Why this hook is still updated?**: This project (`sails-hook-tenancy`) continues to be maintained and updated with critical security and performance fixes (like the v0.0.4 context isolation) specifically to support **mature and large-scale projects** that are currently in the process of migrating. Our goal is to ensure stability and security for existing production environments until their transition to a modern stack is complete.
+> **Why this hook is still updated?**: This project (`sails-hook-tenancy`) continues to be maintained and updated with critical security and performance fixes (like the v0.0.4+ context isolation) specifically to support **mature and large-scale projects** that are currently in the process of migrating. Our goal is to ensure stability and security for existing production environments until their transition to a modern stack is complete.
 
 ### 🚀 Key Features
 - **Strict Context Isolation**: Each request operates in its own isolated context.
@@ -239,7 +239,7 @@ module.exports = {
 > [!IMPORTANT]
 > **Performance & Security Note**: In version `0.0.3` and earlier, the hook mutated the global Model singleton, which could lead to race conditions and "tenant leakage" under high concurrency. 
 
-As of **v0.0.4**, we have implemented **Prototypal Inheritance Isolation**. When you call `.use(datasource)`, the hook creates a new object that inherits from your Model but overrides the `datastore` property only for that specific instance.
+As of **v0.0.4+**, we have implemented **Prototypal Inheritance Isolation**. When you call `.use(datasource)`, the hook creates a new object that inherits from your Model but overrides the `datastore` property only for that specific instance.
 
 ```javascript
 // Internal mechanism for safety
